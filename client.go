@@ -123,7 +123,7 @@ func (c *Client) call(module, action string, param map[string]interface{}, outco
 		return
 	}
 
-	contentBytes = bytes.Replace(content.Bytes(), []byte(`"tokenDecimal":""`), []byte(`"tokenDecimal":"0"`), -1)
+	contentBytes := bytes.Replace(content.Bytes(), []byte(`"tokenDecimal":""`), []byte(`"tokenDecimal":"0"`), -1)
 	var envelope Envelope
 	err = json.Unmarshal(contentBytes, &envelope)
 	if err != nil {
